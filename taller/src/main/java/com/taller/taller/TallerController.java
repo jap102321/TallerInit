@@ -11,7 +11,7 @@ public class TallerController {
 
     TallerService service = new TallerService();
 
-    @PostMapping("/leer-csv")
+    @PostMapping("/leer-data")
     //En este caso se debe hacer así ya que al enviarlo en este caso específico ya que a diferencia de el ejemplo
     //Pasado este no tiene forma de encontrar el KeyValue automaticamente como si el RequestBody fuese un objeto
     //(Por ejemplo) public Optional<Persona> ponerPersona(@RequestBody() Persona persona)
@@ -19,9 +19,9 @@ public class TallerController {
     //Route y se recibe como value el URL (La petición es esta: "route": "C:/Users/jupag/Desktop/taller/people.csv").
 
     public String sendFileURL(@RequestBody Map<String, String> body) throws IOException {
-
         String route = body.get("route");
         return this.service.identifyDocument(route);
     }
+
 
 }
