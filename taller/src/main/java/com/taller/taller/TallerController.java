@@ -1,14 +1,18 @@
 package com.taller.taller;
 
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/")
 public class TallerController {
 
+    RestTemplate template = new RestTemplate();
     TallerService service = new TallerService();
 
     @PostMapping("/leer-data")
@@ -19,9 +23,10 @@ public class TallerController {
     //Route y se recibe como value el URL (La petición es esta: "route": "C:/Users/jupag/Desktop/taller/people.csv").
 
     public String sendFileURL(@RequestBody Map<String, String> body) throws IOException {
-        String route = body.get("route");
-        return this.service.identifyDocument(route);
+        String data = body.get("route");
+        return service.identifyDocument(data);
     }
+
 
 
 }
