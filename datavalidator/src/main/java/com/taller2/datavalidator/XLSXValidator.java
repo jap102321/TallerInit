@@ -11,8 +11,6 @@ import java.io.IOException;
 import java.util.*;
 
 public class XLSXValidator {
-    static List<List<String>> validData = new ArrayList<>();
-    static List<List<String>> invalidData = new ArrayList<>();
 
     public static String validateXSLX(String route){
         int validCounter = 0;

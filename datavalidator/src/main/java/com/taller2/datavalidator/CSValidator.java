@@ -10,12 +10,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CSValidator {
-    static List<List<String>> validData = new ArrayList<>();
-    static List<List<String>> invalidData = new ArrayList<>();
 
     public static String validators(String route){
         //Regex
         String regex = "^([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+[a-zA-Z]{2,6})?$";
+        int validCounter = 0;
+        int invalidCounter = 0;
         //La clase pattern se encarga de compilar el regex del string y juntarlo
         Pattern pattern = Pattern.compile(regex);
         String linea;
@@ -49,9 +49,9 @@ public class CSValidator {
                     //Validaciones (Si encuentra match, si contiene el valor del titulo y se compara la fecha)
                     if (matcher.find() && validJobTitles.contains(jobTitle) && date2.before(date1)) {
                         //Se le añade a listOfData la lista de valores validos.
-                        validData.add(List.of(values));
+                        validCounter++;
                     } else {
-                        invalidData.add(List.of(values));
+                        invalidCounter++;
                     }
 
                 } catch (ParseException e) {
@@ -63,6 +63,6 @@ public class CSValidator {
             throw new RuntimeException(e);
         }
         //Retorna la lista
-        return "Archivos válidos " + validData.size() + " Archivos inválidos " + invalidData.size();
+        return "Archivos válidos " + validCounter + " Archivos inválidos " + invalidCounter;
     }
 }
