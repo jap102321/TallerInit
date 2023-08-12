@@ -13,7 +13,6 @@ public class DataValidatorController {
 
     @PostMapping("/validate-data")
     public String almacenarRuta(@RequestBody() String newRoute) {
-
         return service.validateData(newRoute);
     }
 }

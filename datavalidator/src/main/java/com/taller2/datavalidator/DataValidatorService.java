@@ -6,7 +6,7 @@ public class DataValidatorService {
         String file = "";
         if(route.contains(".csv")){
            file = DataReaders.readCSV(route);
-        } else if (route.contains(".xslx")) {
+        } else if (route.contains(".xlsx")) {
             file = DataReaders.readXSLX(route);
         }
         return file;

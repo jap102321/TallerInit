@@ -6,12 +6,11 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
 
-public class XSLXValidator {
+public class XLSXValidator {
     static List<List<String>> validData = new ArrayList<>();
     static List<List<String>> invalidData = new ArrayList<>();
 
